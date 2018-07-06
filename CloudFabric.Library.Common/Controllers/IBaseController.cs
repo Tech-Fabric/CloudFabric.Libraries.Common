@@ -8,10 +8,10 @@ namespace CloudFabric.Library.Common.Controllers
 {
     public interface IBaseController<TEntity> where TEntity : BaseEntity
     {
-        Task<TEntity> ListAsync();
-        Task<List<TEntity>> GetByIdAsync(int id);
-        Task<TEntity> Create();
-        Task<TEntity> Update();
-        Task<TEntity> Delete();
+        Task<List<TEntity>> ListAsync();
+        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> CreateAsync(TEntity entity);
+        Task<TEntity> UpdateAsync(int id, TEntity entity);
+        Task<TEntity> DeleteAsync(int id);
     }
 }

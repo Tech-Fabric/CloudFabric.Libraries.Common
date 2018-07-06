@@ -3,6 +3,7 @@ using CloudFabric.Library.Common.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,27 +25,30 @@ namespace CloudFabric.Library.Common.Controllers
         }
         
         [HttpGet("{id}")]
-        public Task<TEntity> GetByIdAsync(int id)
+        public async Task<TEntity> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _service.GetByIdAsync(id);
         }
 
         [HttpPost("")]
-        public Task<TEntity> Create()
+        public async Task<TEntity> CreateAsync([FromBody]TEntity entity)
         {
-            throw new NotImplementedException();
+            await _service.CreateAsync(entity);
+            return null;
         }
 
-        [HttpDelete("")]
-        public Task<TEntity> Delete()
+        [HttpDelete("{id}")]
+        public async Task<TEntity> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _service.DeleteAsync(id);
+            return null;
         }
 
-        [HttpPut("")]
-        public Task<TEntity> Update()
+        [HttpPut("{id}")]
+        public async Task<TEntity> UpdateAsync(int id, [FromBody]TEntity entity)
         {
-            throw new NotImplementedException();
+            await _service.UpdateAsync(id, entity);
+            return null;
         }
     }
 }

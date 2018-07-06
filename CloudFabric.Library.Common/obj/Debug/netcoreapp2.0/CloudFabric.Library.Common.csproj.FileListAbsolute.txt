@@ -1,0 +1,9 @@
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\bin\Debug\netcoreapp2.0\CloudFabric.Library.Common.deps.json
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\bin\Debug\netcoreapp2.0\CloudFabric.Library.Common.dll
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\bin\Debug\netcoreapp2.0\CloudFabric.Library.Common.pdb
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.csprojAssemblyReference.cache
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.csproj.CoreCompileInputs.cache
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.AssemblyInfoInputs.cache
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.AssemblyInfo.cs
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.dll
+c:\users\tyler harker\work\CloudFabric.Library.Common\CloudFabric.Library.Common\obj\Debug\netcoreapp2.0\CloudFabric.Library.Common.pdb
