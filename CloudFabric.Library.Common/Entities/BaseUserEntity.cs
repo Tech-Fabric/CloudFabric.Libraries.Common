@@ -4,8 +4,12 @@ using System.Text;
 
 namespace CloudFabric.Library.Common.Entities
 {
-    public abstract class BaseUserEntity : BaseEntity
+    public abstract class BaseUserEntity<TUserRole> : BaseEntity
     {
-        public List<BaseUserRoleEntity> UserRoles { get; set; }
+
+        public string Password { get; set; }
+        public string EncryptionKey { get; set; }
+
+        public List<TUserRole> UserRoles { get; set; }
     }
 }

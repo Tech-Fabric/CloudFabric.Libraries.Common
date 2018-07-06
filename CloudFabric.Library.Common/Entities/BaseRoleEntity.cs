@@ -4,11 +4,11 @@ using System.Text;
 
 namespace CloudFabric.Library.Common.Entities
 {
-    public abstract class BaseRoleEntity : BaseEntity
+    public abstract class BaseRoleEntity<TUserRole, TRolePermission> : BaseEntity
     {
         public string Name { get; set; }
 
-        public List<BaseRolePermissionEntity> RolePermissions { get; set; }
-        public List<BaseUserRoleEntity> UserRoles { get; set; }
+        public List<TRolePermission> RolePermissions { get; set; }
+        public List<TUserRole> UserRoles { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Security
 {
-    public abstract class BaseClaimsHelper<TEntity> where TEntity : BaseUserEntity
+    public abstract class BaseClaimsHelper<TEntity, TUserRole> where TEntity : BaseUserEntity<TUserRole>
     {
         public async Task<List<Claim>> GetAsync(TEntity user)
         {

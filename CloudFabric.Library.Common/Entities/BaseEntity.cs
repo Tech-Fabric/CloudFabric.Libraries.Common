@@ -10,10 +10,8 @@ namespace CloudFabric.Library.Common.Entities
     {
         [Key]
         public int Id { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; set; }
         public int CreatedBy { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdatedAt { get; set; }
         public int LastUpdatedBy { get; set; }
     }
