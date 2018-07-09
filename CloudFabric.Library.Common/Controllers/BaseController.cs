@@ -39,8 +39,7 @@ namespace CloudFabric.Library.Common.Controllers
         [HttpPost("")]
         public async Task<TEntity> CreateAsync([FromBody]TEntity entity)
         {
-            await _service.CreateAsync(entity);
-            return null;
+            return await _service.CreateAsync(entity);
         }
 
         [HttpDelete("{id}")]
@@ -53,8 +52,7 @@ namespace CloudFabric.Library.Common.Controllers
         [HttpPut("{id}")]
         public async Task<TEntity> UpdateAsync(int id, [FromBody]TEntity entity)
         {
-            await _service.UpdateAsync(id, entity);
-            return null;
+            return await _service.UpdateAsync(id, entity);
         }
     }
 }

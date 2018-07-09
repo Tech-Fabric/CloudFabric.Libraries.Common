@@ -15,9 +15,9 @@ namespace CloudFabric.Library.Common.Services
         where TEntity : BaseEntity
     {
         Task DeleteAsync(int id);
-        Task CreateAsync(TEntity entity);
+        Task<TEntity> CreateAsync(TEntity entity);
         Task<IQueryable<TEntity>> ListAsync();
         Task<TEntity> GetByIdAsync(int id);
-        Task UpdateAsync(int id, TEntity entity);
+        Task<TEntity> UpdateAsync(int id, TEntity entity);
     }
 }
