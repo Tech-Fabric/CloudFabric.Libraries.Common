@@ -1,5 +1,6 @@
 ﻿using CloudFabric.Library.Common.Entities;
 using CloudFabric.Library.Common.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,14 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Services
 {
-    public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
+    public abstract class BaseService<TRepository, TDbContext, TEntity> : IBaseService<TRepository, TDbContext, TEntity> 
+        where TRepository : IBaseRepository<TDbContext, TEntity>
+        where TDbContext : DbContext
+        where TEntity : BaseEntity
     {
-        protected IBaseRepository<TEntity> _repository;
+        protected TRepository _repository;
 
-        public BaseService(IBaseRepository<TEntity> repository)
+        public BaseService(TRepository repository)
         {
             _repository = repository;
         }

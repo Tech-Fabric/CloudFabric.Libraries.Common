@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Repositories
 {
-    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
+    public abstract class BaseRepository<TDbContext, TEntity> : IBaseRepository<TDbContext, TEntity> 
+        where TDbContext : DbContext
+        where TEntity : BaseEntity
     {
-        protected readonly DbContext _dbContext;
-        public BaseRepository(DbContext dbContext)
+        protected readonly TDbContext _dbContext;
+        public BaseRepository(TDbContext dbContext)
         {
             _dbContext = dbContext;
         }

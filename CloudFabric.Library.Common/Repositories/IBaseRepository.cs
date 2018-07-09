@@ -1,4 +1,5 @@
 ﻿using CloudFabric.Library.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Repositories
 {
-    public interface IBaseRepository<TEntity> where TEntity : BaseEntity
+    public interface IBaseRepository<TDbContext, TEntity> 
+        where TEntity : BaseEntity
+        where TDbContext : DbContext
     {
         Task DeleteAsync(int id);
         Task CreateAsync(TEntity entity);

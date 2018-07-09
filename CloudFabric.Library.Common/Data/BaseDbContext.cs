@@ -58,7 +58,7 @@ namespace CloudFabric.Library.Common.Data
 
         public int GetCurrentUser()
         {
-            var authenticatedUserId = _httpContextAccessor.HttpContext.User.FindFirst("id").Value;
+            var authenticatedUserId = _httpContextAccessor.HttpContext.User?.FindFirst("id")?.Value;
             return Convert.ToInt32(authenticatedUserId);
         }
     }

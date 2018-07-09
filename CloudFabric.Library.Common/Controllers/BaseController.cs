@@ -1,6 +1,8 @@
 ﻿using CloudFabric.Library.Common.Entities;
+using CloudFabric.Library.Common.Repositories;
 using CloudFabric.Library.Common.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,15 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Controllers
 {
-    public class BaseController<TEntity> : IBaseController<TEntity> where TEntity : BaseEntity
+    public class BaseController<TService, TRepository, TDbContext, TEntity> : IBaseController<TService, TRepository, TDbContext, TEntity> 
+        where TService : IBaseService<TRepository, TDbContext, TEntity> 
+        where TRepository : IBaseRepository<TDbContext, TEntity>
+        where TDbContext : DbContext
+        where TEntity : BaseEntity
     {
-        private readonly IBaseService<TEntity> _service;
+        public readonly TService _service;
 
-        public BaseController(IBaseService<TEntity> service)
+        public BaseController(TService service)
         {
             _service = service;
         }
