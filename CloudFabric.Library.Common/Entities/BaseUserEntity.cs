@@ -9,7 +9,7 @@ namespace CloudFabric.Library.Common.Entities
 
         public string Password { get; set; }
         public string EncryptionKey { get; set; }
-
+        public bool IsActive { get; set; }
         public List<TUserRole> UserRoles { get; set; }
     }
 }
