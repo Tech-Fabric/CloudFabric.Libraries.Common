@@ -21,9 +21,10 @@ namespace CloudFabric.Library.Common.Services
             _repository = repository;
         }
 
-        public virtual async Task CreateAsync(TEntity entity)
+        public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {
             await _repository.CreateAsync(entity);
+            return entity;
         }
 
         public virtual async Task DeleteAsync(int id)
@@ -41,9 +42,10 @@ namespace CloudFabric.Library.Common.Services
             return await _repository.ListAsync();
         }
 
-        public virtual async Task UpdateAsync(int id, TEntity entity)
+        public virtual async Task<TEntity> UpdateAsync(int id, TEntity entity)
         {
             await _repository.UpdateAsync(id, entity);
+            return entity;
         }
     }
 }
