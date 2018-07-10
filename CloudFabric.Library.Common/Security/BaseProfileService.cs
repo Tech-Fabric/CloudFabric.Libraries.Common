@@ -22,10 +22,10 @@ namespace CloudFabric.Library.Common.Security
             _client = client;
         }
 
-        public async Task GetProfileDataAsync(ProfileDataRequestContext context)
+        public Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
-            await Task.CompletedTask;
             context.IssuedClaims = context.Subject.Identities.First().Claims.ToList();
+            return Task.CompletedTask;
         }
 
         public async Task IsActiveAsync(IsActiveContext context)
