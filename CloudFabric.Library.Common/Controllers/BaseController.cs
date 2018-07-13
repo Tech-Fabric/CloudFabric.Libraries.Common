@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Controllers
 {
-    public class BaseController<TService, TRepository, TDbContext, TEntity> : IBaseController<TService, TRepository, TDbContext, TEntity> 
-        where TService : IBaseService<TRepository, TDbContext, TEntity> 
+    public class BaseController<TService, TRepository, TDbContext, TEntity, TModel> : IBaseController<TService, TRepository, TDbContext, TEntity, TModel> 
+        where TService : IBaseService<TRepository, TDbContext, TEntity, TModel> 
         where TRepository : IBaseRepository<TDbContext, TEntity>
         where TDbContext : DbContext
         where TEntity : BaseEntity
@@ -25,34 +25,33 @@ namespace CloudFabric.Library.Common.Controllers
         }
 
         [HttpGet("")]
-        public async Task<List<TEntity>> ListAsync()
+        public async Task<List<TModel>> ListAsync()
         {
             return (await _service.ListAsync()).ToList();
         }
         
         [HttpGet("{id}")]
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<TModel> GetByIdAsync(int id)
         {
             return await _service.GetByIdAsync(id);
         }
 
         [HttpPost("")]
-        public async Task<TEntity> CreateAsync([FromBody]TEntity entity)
+        public async Task<TModel> CreateAsync([FromBody]TModel model)
         {
-            return await _service.CreateAsync(entity);
+            return await _service.CreateAsync(model);
         }
 
         [HttpDelete("{id}")]
-        public async Task<TEntity> DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
             await _service.DeleteAsync(id);
-            return null;
         }
 
         [HttpPut("{id}")]
-        public async Task<TEntity> UpdateAsync(int id, [FromBody]TEntity entity)
+        public async Task<TModel> UpdateAsync(int id, [FromBody]TModel model)
         {
-            return await _service.UpdateAsync(id, entity);
+            return await _service.UpdateAsync(id, model);
         }
     }
 }

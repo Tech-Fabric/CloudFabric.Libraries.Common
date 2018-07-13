@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Services
 {
-    public interface IBaseService<TRepository, TDbContext, TEntity> 
+    public interface IBaseService<TRepository, TDbContext, TEntity, TModel> 
         where TRepository : IBaseRepository<TDbContext, TEntity>
         where TDbContext : DbContext
         where TEntity : BaseEntity
     {
         Task DeleteAsync(int id);
-        Task<TEntity> CreateAsync(TEntity entity);
-        Task<IQueryable<TEntity>> ListAsync();
-        Task<TEntity> GetByIdAsync(int id);
-        Task<TEntity> UpdateAsync(int id, TEntity entity);
+        Task<TModel> CreateAsync(TModel model);
+        Task<List<TModel>> ListAsync();
+        Task<TModel> GetByIdAsync(int id);
+        Task<TModel> UpdateAsync(int id, TModel model);
     }
 }

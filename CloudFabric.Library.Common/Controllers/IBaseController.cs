@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace CloudFabric.Library.Common.Controllers
 {
-    public interface IBaseController<TService, TRepository, TDbContext, TEntity> 
-        where TService : IBaseService<TRepository, TDbContext, TEntity> 
+    public interface IBaseController<TService, TRepository, TDbContext, TEntity, TModel> 
+        where TService : IBaseService<TRepository, TDbContext, TEntity, TModel> 
         where TRepository : IBaseRepository<TDbContext, TEntity>
         where TDbContext : DbContext
         where TEntity : BaseEntity
 
     {
-        Task<List<TEntity>> ListAsync();
-        Task<TEntity> GetByIdAsync(int id);
-        Task<TEntity> CreateAsync(TEntity entity);
-        Task<TEntity> UpdateAsync(int id, TEntity entity);
-        Task<TEntity> DeleteAsync(int id);
+        Task<List<TModel>> ListAsync();
+        Task<TModel> GetByIdAsync(int id);
+        Task<TModel> CreateAsync(TModel model);
+        Task<TModel> UpdateAsync(int id, TModel model);
+        Task DeleteAsync(int id);
     }
 }
