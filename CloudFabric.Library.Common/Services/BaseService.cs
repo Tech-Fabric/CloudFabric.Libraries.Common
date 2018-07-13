@@ -39,7 +39,8 @@ namespace CloudFabric.Library.Common.Services
 
         public virtual async Task<IQueryable<TEntity>> ListAsync()
         {
-            return await _repository.ListAsync();
+            await Task.CompletedTask;
+            return _repository.List();
         }
 
         public virtual async Task<TEntity> UpdateAsync(int id, TEntity entity)

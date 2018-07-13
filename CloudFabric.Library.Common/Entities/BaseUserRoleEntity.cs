@@ -10,6 +10,6 @@ namespace CloudFabric.Library.Common.Entities
         public TUser User { get; set; }
 
         public int RoleId { get; set; }
-        public TRole Roles { get; set; }
+        public TRole Role { get; set; }
     }
 }

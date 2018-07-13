@@ -31,12 +31,6 @@ namespace CloudFabric.Library.Common.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<IQueryable<TEntity>> ListAsync()
-        {
-            await Task.CompletedTask;
-            return _dbContext.Set<TEntity>().AsNoTracking();
-        }
-
         public async Task<TEntity> GetByIdAsync(int id)
         {
             return await _dbContext.Set<TEntity>()
@@ -48,6 +42,11 @@ namespace CloudFabric.Library.Common.Repositories
         {
             _dbContext.Set<TEntity>().Update(entity);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public IQueryable<TEntity> List()
+        {
+            return _dbContext.Set<TEntity>().AsNoTracking();
         }
     }
 }

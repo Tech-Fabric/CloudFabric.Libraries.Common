@@ -15,7 +15,7 @@ namespace CloudFabric.Library.Common.Middlewares
 
         public CustomExceptionMiddleware(RequestDelegate next)
         {
-
+            _next = next;
         }
 
         public async Task Invoke(HttpContext context)

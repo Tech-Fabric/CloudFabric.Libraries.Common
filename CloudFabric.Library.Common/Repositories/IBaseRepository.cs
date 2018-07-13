@@ -14,8 +14,8 @@ namespace CloudFabric.Library.Common.Repositories
     {
         Task DeleteAsync(int id);
         Task CreateAsync(TEntity entity);
-        Task<IQueryable<TEntity>> ListAsync();
         Task<TEntity> GetByIdAsync(int id);
         Task UpdateAsync(int id, TEntity entity);
+        IQueryable<TEntity> List();
     }
 }
