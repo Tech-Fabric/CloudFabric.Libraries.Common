@@ -9,7 +9,11 @@ namespace CloudFabric.Library.Common.Utilities
     {
         public static TOut Map<TIn, TOut>(TIn input)
         {
-            return JsonConvert.DeserializeObject<TOut>(JsonConvert.SerializeObject(input));
+            return JsonConvert.DeserializeObject<TOut>(
+                JsonConvert.SerializeObject(input, Formatting.None, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                }));
         }
     }
 }
