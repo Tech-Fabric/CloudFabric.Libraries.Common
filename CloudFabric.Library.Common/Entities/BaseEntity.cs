@@ -9,10 +9,10 @@ namespace CloudFabric.Library.Common.Entities
     public abstract class BaseEntity
     {
         [Key]
-        public int Id { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public int CreatedBy { get; set; }
-        public DateTime LastUpdatedAt { get; set; }
-        public int LastUpdatedBy { get; set; }
+        public virtual int Id { get; set; }
+        public virtual DateTime CreatedAt { get; set; }
+        public virtual int CreatedBy { get; set; }
+        public virtual DateTime LastUpdatedAt { get; set; }
+        public virtual int LastUpdatedBy { get; set; }
     }
 }
