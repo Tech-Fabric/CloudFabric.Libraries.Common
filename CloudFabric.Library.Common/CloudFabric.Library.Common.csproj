@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.2.301" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Security\" />
+  </ItemGroup>
+
 </Project>
