@@ -10,7 +10,7 @@ namespace CloudFabric.Library.Common.Security
     {
         public static string GetNameIdentifierClaimValue(this ClaimsPrincipal principle)
         {
-            return principle.FindFirstValue(BaseClaimTypes.Id);
+            return principle.FindFirstValue(ClaimTypes.Id);
         }
 
         public static int GetUserId(this ClaimsPrincipal principal)

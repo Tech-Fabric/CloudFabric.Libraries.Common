@@ -16,9 +16,9 @@ namespace CloudFabric.Library.Common.Security
             int? userId = user?.Id;
             if (userId != null)
             {
-                claims.Add(new Claim(BaseClaimTypes.Id, userId.ToString()));
-                claims.Add(new Claim(BaseClaimTypes.CreatedAt, user.CreatedAt.ToString()));
-                claims.Add(new Claim(BaseClaimTypes.LastUpdatedAt, user.LastUpdatedAt.ToString()));
+                claims.Add(new Claim(ClaimTypes.Id, userId.ToString()));
+                claims.Add(new Claim(ClaimTypes.CreatedAt, user.CreatedAt.ToString()));
+                claims.Add(new Claim(ClaimTypes.LastUpdatedAt, user.LastUpdatedAt.ToString()));
 
                 var additionalClaims = await GetAdditionalAsync(user);
                 claims.AddRange(additionalClaims);
