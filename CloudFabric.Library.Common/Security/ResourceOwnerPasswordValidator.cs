@@ -9,7 +9,7 @@ using IdentityServer4.Validation;
 
 namespace CloudFabric.Library.Common.Security
 {
-    public class ResourceOwnerPasswordValidator<THttpClient, TClaimsHelper, TUser, TRole, TUserRole> : IResourceOwnerPasswordValidator 
+    public class ResourceOwnerPasswordValidator<THttpClient, TClaimsHelper, TUser, TRole, TUserRole> : IResourceOwnerPasswordValidator
         where THttpClient : IBaseUserServiceClient<TUser>
         where TClaimsHelper : BaseClaimsHelper<TUser, TUserRole>, new()
         where TUser : BaseUserEntity<TUserRole>
@@ -23,7 +23,7 @@ namespace CloudFabric.Library.Common.Security
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
             var user = await _client.GetByUsernameAndPasswordAsync(context.UserName, context.Password);
-            if(user == null)
+            if (user == null)
             {
                 context.Result = new GrantValidationResult(TokenRequestErrors.InvalidGrant, "Invalid credentials. Please try again.");
                 return;

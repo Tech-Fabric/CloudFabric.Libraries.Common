@@ -10,7 +10,7 @@ namespace CloudFabric.Library.Common.Security
     {
         public static string GetNameIdentifierClaimValue(this ClaimsPrincipal principle)
         {
-            return principle.FindFirstValue(BaseClaimTypes.Id);
+            return principle.FindFirstValue(ClaimTypes.Id);
         }
 
         public static int GetUserId(this ClaimsPrincipal principal)
@@ -21,7 +21,7 @@ namespace CloudFabric.Library.Common.Security
         public static string GetClaimValue(this ClaimsPrincipal principal, string type)
         {
             var claims = principal.Claims;
-            if (claims == null ||  string.IsNullOrWhiteSpace(type))
+            if (claims == null || string.IsNullOrWhiteSpace(type))
             {
                 return string.Empty;
             }
@@ -29,7 +29,7 @@ namespace CloudFabric.Library.Common.Security
             var claim = claims.FirstOrDefault(x => x.Type == type);
 
             return claim == null ? string.Empty : claim.Value;
-            
+
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CloudFabric.Library.Common.Security
 {
-    public abstract class BaseClaimTypes
+    public abstract class ClaimTypes
     {
         public const string Id = "id";
         public const string CreatedAt = "createdAt";
