@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CloudFabric.Library.Common.Filters
+namespace CloudFabric.Library.Common.Attributes
 {
     public class ValidateModelAttribute : ActionFilterAttribute
     {
