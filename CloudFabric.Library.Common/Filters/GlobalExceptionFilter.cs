@@ -1,4 +1,5 @@
 ﻿using CloudFabric.Library.Common.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -58,6 +59,17 @@ namespace CloudFabric.Library.Common.Filters
 
                     errorDetails.Errors.Add(key, val?.Errors?.Select(e => e.ErrorMessage).ToArray());
                 }
+                errorDetails.Status = (int)HttpStatusCode.BadRequest;
+                context.Result = new ObjectResult(errorDetails)
+                {
+                    StatusCode = StatusCodes.Status400BadRequest
+                };
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
+            else if (context?.Exception is ValidationException)
+            {
+                var vException = (ValidationException)context.Exception;
+                errorDetails.Errors.Add(context.Exception.GetType().Name, new[] { vException.Message });
                 errorDetails.Status = (int)HttpStatusCode.BadRequest;
                 context.Result = new ObjectResult(errorDetails)
                 {
